@@ -1,0 +1,28 @@
+.personBox {
+	display: block;
+	height: 110px;
+	width: 100px;
+	border: 2px solid gray;
+	background-color: lightgray;
+	float: left;
+	margin: 10px;
+	overflow: hidden;
+	font-size: 9px;
+}
+.personPhoto {
+	height: 100px;
+	width: 100px;
+	cursor: normal;
+}
+
+#startGravityButton {
+	display: block;
+	width: 160px;
+	border: 2px solid darkgreen;
+	color: darkgreen;
+	background-color: lightgreen;
+	margin: 10px;
+	padding: 10px;
+	font-size: 20px;
+	text-align: center;
+}

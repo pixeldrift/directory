@@ -1,0 +1,286 @@
+#map_view #main_panel {
+	display: block;
+	width: 960px;
+	height: 740px;
+	border: 4px solid gray;
+	border-radius: 10px;
+	overflow: hidden;
+}
+#map_view .disclaimer {
+	font-size: 14px;
+	font-style: italic;
+	margin: 10px;
+	color: gray;
+}
+#map_view .disclaimer a {
+	color: black;
+	text-decoration: none;
+	padding: 3px 5px 3px 5px;
+	border-radius: 4px;
+}
+#map_view .disclaimer a:hover {
+	padding: 2px 4px 2px 4px;
+	border: 1px solid gray;
+}
+#map_view #fire_safety {
+	
+}
+#map_view #report_change {
+
+}
+#map_view #titlebar {
+	display: block;
+	background-color: gray;
+	height: 30px;
+	font-weight: bold;
+	padding: 5px 5px 5px 10px;
+	color: white;
+	text-transform: uppercase;
+	font-size: 24px;
+	border-radius: 5px 5px 0 0;
+}
+#map_view #title_close_button {
+	font-size: 26;
+	color: white;
+	float: right;
+}
+#map_view #title_close_button:hover {
+	color: black;
+}
+
+#map_view #map_pane {
+	display: block;
+	float: left;
+	height: 700px;
+	width: 708px;
+	border-right: 2px solid gray;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+}
+
+#map_view #map_controls {
+	position: relative;
+	display: block;
+	width: 100px;
+	height: 30px;
+	top: 670px;
+	border-top: 2px solid gray;
+	border-right: 2px solid gray;
+	border-radius: 0 10px 0 8px;
+	float: left;
+	z-index: 100;
+	background-color: white;;
+}
+#map_view #map_controls a {
+	color: gray;
+	font-size: 22px;
+	margin: 4px;
+}
+#map_view #map_controls a:hover {
+	color: black;
+}
+#map_view #fire_toggle, #parking_toggle {
+	position: relative;
+	float: left;
+	color: gray;
+	font-size: 20px;
+	z-index: 100;
+	margin: 0 0 0 16px;
+	top: 675px;
+}
+
+
+#map_view #fire_toggle:hover, #parking_toggle:hover {
+	color: black;
+}
+
+
+#map_view #sidebar {
+	display: block;
+	float: right;
+	height: 700px;
+	width: 250;
+}
+#map_view #search_pane {
+	display: block;
+	height: 68px;
+	background-color: lightgray;
+	padding: 5px;
+	border-bottom: 2px solid gray;
+}
+#map_view #search_box {
+	font-size: 15px;
+	width: 242px;
+	height: 22px;
+	background: white;
+	border: 1px solid gray;
+	border-radius: 15px;
+	box-shadow: inset 1px 1px 2px 0 #707070;
+	text-indent: 24px;
+}
+#map_view #search_box:focus {
+	outline: none;
+	border: 1px solid lightblue;
+}
+#map_view #search_box_magnifier {
+	position: relative;
+	z-index: 1;
+	top: -20px;
+	left: 8px;
+	color: gray;
+	font-size: 14px;
+}
+#map_view #search_box_clear {
+	position: relative;
+	z-index: 1;
+	top: -18px;
+	float: right;
+	color: lightgray;
+	margin-right: 2px;
+}
+#map_view #search_box_clear:hover {
+	color: black;
+}
+
+#map_view #filters {
+	display: inline-block;
+	font-size: 10px;
+}
+
+#map_view #sort_by {
+	display: inline-block;
+	font-size: 10px;
+}
+
+#map_view #list_pane {
+	display: block;
+	width: 250px;
+	height: 620px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#map_view li.list_entry {
+	display: block;
+	height: 41px;
+	border-top: 1px solid gray;
+	padding: 4px;
+	list-style: none;
+	padding: 4px;
+}
+#map_view li.list_entry:hover {
+	background-color: lightgray;
+}
+
+#map_view li.list_entry:active {
+	height: 40px;
+	border: 2px solid black;
+	padding: 3px 2px 3px 2px;
+}
+
+#map_view li.list_entry:first-child {
+	border-top: 0;
+	padding: 4px;
+}
+
+#map_view li.list_entry h1 {
+	margin: 4px 0 0 4px;
+	padding: 0;
+	font-size: 16px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+
+}
+#map_view li.list_entry h2 {
+	margin: 0;
+	padding: 0;
+	width: 130px;
+	font-size: 12px;
+	color: gray;
+	font-style: italic;
+	float: left;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+#map_view .list_entry .portrait {
+	width: 36px;
+	height: 36px;
+	border-radius: 20px;
+	border: 2px solid gray;
+	overflow: hidden;
+	float: left;
+	margin-right: 8px;
+}
+#map_view .list_entry .portrait i {
+	font-size: 46px;
+	color: gray;
+}
+#map_view .list_entry .contact_icon {
+	display: block;
+	color: gray;
+	float: right;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+#map_view .list_entry .contact_icon:hover {
+	color: black;
+}
+
+#map_view .contact_card {
+	width: 576px;
+	height: 100px;
+	margin: 0 auto 0 auto;
+	border-bottom: 2px solid gray;
+	border-left: 2px solid gray;
+	border-right: 2px solid gray;
+	padding: 10px;
+	border-radius: 0 0 20px 20px;
+	visibility: none;
+}
+#map_view .contact_card:hover {
+	background-color: lightgray;
+}
+#map_view .contact_card h1 {
+	margin: 4px 0 0 4px;
+	padding: 0;
+	font-size: 22px;
+	white-space: nowrap;
+}
+#map_view .contact_card h2 {
+	margin: 0;
+	padding: 0;
+	font-size: 18px;
+	color: gray;
+	font-style: italic;
+	float: left;
+	white-space: nowrap;
+}
+#map_view .contact_card .portrait {
+	width: 96px;
+	height: 96px;
+	border-radius: 50px;
+	border: 2px solid gray;
+	overflow: hidden;
+	float: left;
+	margin-right: 8px;
+}
+#map_view .contact_card .portrait i {
+	font-size: 120px;
+	color: gray;
+}
+#map_view .contact_card .contact_icon {
+	display: block;
+	color: gray;
+	float: right;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+#map_view .contact_card .contact_icon:hover {
+	color: black;
+}

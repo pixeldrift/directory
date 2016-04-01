@@ -1,0 +1,366 @@
+<html>
+	<head>
+		<title>G&amp;P Directory</title> 
+		<link rel="icon" type="image/png" href="images/gpFavicon.png">
+	
+		<style>
+			body {
+				font-family: "Gotham";
+				margin: 30px;
+			}
+			a {
+				color: white;
+				text-decoration: none;
+			}
+			h1 {
+				color: #0083a9; /* Teal */
+			}
+			.branchInfo {
+				font-size: 14px;
+				float: right;
+				width: 400px;
+				color: gray;
+			}
+			#shreveportInfo {
+				float: left;
+			}
+			#tylerInfo {
+				float: right;
+			}
+			.teal {
+				color: #0083a9; /* Teal */
+				font-weight: bolder;
+			}
+			#header {
+				margin: 0 0 30px 0;
+			}
+
+		</style>
+
+	
+		<!-- Main jQuery libraries -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+		<!-- jQuery plugin that adds templating functionality -->
+		<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js"></script>
+
+		<!-- Helps import data from CSV spreadsheets -->
+		<script type="text/javascript" src="js/jquery.csv-0.71.min.js"></script>
+
+		<!-- Makes tables sortable by the column headers -->
+		<script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+
+		<!-- Enables panning and zooming SVG elements used on the map -->
+		<script src="js/jquery.panzoom.min.js"></script>
+
+		<!-- Converts externaly linked SVG file to inline SVG code -->
+		<script src="js/InlineSVG-master/jquery.inlinesvg.min.js"></script>
+
+		<!-- Turns on gravity for photo view. Fun! -->
+		<script type="text/javascript" src="js/jGravity-min.js"></script>
+
+
+
+		<!-- The styles for the font-based icons from FontAwesome -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+		<!-- Styles for the DataTables plugin -->
+		<link rel="stylesheet" href="https://cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css">
+
+		<!-- For rendering jQuery tabs -->
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+
+		<!-- Our custom CSS for the content of each tab -->
+		<link rel="stylesheet" type="text/css" href="tabs.css">
+		<link rel="stylesheet" type="text/css" href="list_view.css">
+		<link rel="stylesheet" type="text/css" href="photo_view.css">
+		<link rel="stylesheet" type="text/css" href="map_view.css">
+
+		<!-- Our custom Javascript/jQuery code -->
+		<script src="global_functions.js"></script>
+
+	</head>
+
+	<body>
+
+		<div id="header">
+			<a href="http://192.168.100.122:8888/"><img id="headerImage" src="images/gpDirectoryHeader.png" alt="Gremillion &amp; Pou Internal Directory"></a>
+			<div class="branchInfo">
+				<p id="shreveportInfo">
+					<span class="teal">Shreveport</span><br>
+					7225 Fern Ave, #100<br>
+					Shreveport, LA 71105<br>
+					(318) 424-2676<br>
+					<i>Dial 700 + Ext.</i>
+				</p>
+
+				<p id="tylerInfo">
+					<span class="teal">Tyler</span><br>
+					3400 Troop Hwy, #340<br>
+					Tyler, TX, 75701<br>
+					(903) 593-2676<br>
+					<i>Dial 701 + Ext.</i>
+				</p>
+			</div>
+		</div><!-- #header -->
+
+
+		<div id="tabs">
+			<ul>
+				<li><a href="#list_view"><span>List</span></a></li>
+				<li><a href="#photo_view"><span>Photos</span></a></li>
+				<li><a href="#map_view"><span>Map</span></a></li>
+			</ul>
+
+<!-- List tab -->
+			<div id="list_view">
+				<span class="teal">Show: </span>
+				<input type="checkbox" id="showShreveport" name="showShreveport" value="showShreveport" checked>Shreveport</input> 
+				<input type="checkbox" id="showTyler" name="showTyler" value="showTyler" checked>Tyler</input> <br>
+				
+				<table id="contactList" class="dataTable">
+					<thead>
+						<tr>
+							<td>&nbsp;</td>
+							<td>First</td>
+							<td>Last</td>
+							<td>Job Title</td>
+							<td>Ext.</td>
+							<td>Direct Number</td>
+							<td>Branch</td>
+							<td>Message</td>
+						</tr>
+					</thead>
+					<tbody>
+
+					</tbody>
+				</table>
+
+			</div>
+<!-- / List tab -->
+
+
+
+<!-- Photo tab -->
+			<div id="photo_view">
+			</div>
+<!-- / Photo tab -->			
+
+
+
+<!-- Map tab -->
+			<div id="map_view">
+
+				<div id="main_panel">
+					<div id="titlebar">Office Map<i id="title_close_button" class="fa fa-times-circle"></i></div>
+					
+					<div id="map_pane">
+						<div id="map_controls">
+							<a id="zoom_in" class="fa fa-search-plus"></a>
+							<a id="zoom_reset" class="fa fa-home"></a>
+							<a id="zoom_out"class="fa fa-search-minus"></a>
+						</div>
+
+						<a id="fire_toggle"class="fa fa-fire-extinguisher"></a>
+						<a id="parking_toggle" class="fa fa-car"></a>
+
+						<img id="office_map" src="office_map.svg" class="svg">
+					</div>
+
+					<div id="sidebar">
+
+						<div id="search_pane">
+							<input type="text" placeholder="Search" id="search_box" autofocus>
+								<i id="search_box_magnifier" class="fa fa-search"></i>
+								<a id="search_box_clear" class="fa fa-times-circle"></a>
+							</input>
+
+							<div id="filters">
+								Location: <input type="checkbox" name="thing1" value="First Name" checked> Main
+								<input type="checkbox" name="thing2" value="Last Name" checked> Porter
+								<input type="checkbox" name="thing2" value="Department" checked> Tyler
+							</div>
+							<div id="sort_by">
+								Sort by: <input type="radio" name="sortby" value="Thing1" checked> Thing1
+								<input type="radio" name="sortby" value="Thing2" checked> Thing2
+								<input type="radio" name="sortby" value="Thing3" checked> Thing2
+							</div>
+						</div>
+						<ul id="list_pane">
+						</ul>
+
+					</div>
+				</div>
+
+				<p id="report_change" class="disclaimer">Something not right? <a href="mailto:npizar@gpmarketinginc.com">Report a change. <i class="fa fa-envelope-o"></i></a></p>
+
+			</div>
+<!-- / Map tab -->
+
+
+		</div><!-- tabs -->
+		 
+
+
+		<script>
+		$( "#tabs" ).tabs();
+		</script>
+
+
+	</body>
+
+
+<!-- LIST VIEW jQuery Templates -->
+	<script id="contactListTableTemplate" type="text/x-jQuery-tmpl">
+		<table id="directoryList" class="dataTable">
+			<thead>
+				<tr>
+					<td class="photoColumn">&nbsp;</td>
+					<td>First Name</td>
+					<td>Last Name</td>
+					<td>Job Title</td>
+					<td>Ext.</td>
+					<td>Direct</td>
+					<td>Message</td>
+				</tr>
+			</thead>
+			<tbody>
+
+			</tbody>
+		</table>
+	</script>
+
+	<script id="contactListEntryTemplate" type="text/x-jQuery-tmpl">
+		<tr id="${itemID}" class="${itemClass}" data-itemid="${itemID}" data-branchLocation="${branchLocation}">
+			<td id="itemClass" class="listPhoto">{{if itemClass=="person"}}<img class="listPhoto" src="photos/${firstName} ${lastName} 3X3.jpg">{{/if}}</td>
+			<td id="firstName">${firstName}</td>
+			<td id="lastName">${lastName}</td>
+			<td id="jobTitle">${jobTitle}</td>
+			<td id="phoneExtension">${phoneExtension}</td>
+			<td id="phoneDirect">${phoneDirect}</td>
+			<td id="branchLocation">${branchLocation}</td>
+			<td id="contact">{{if emailAddress}}<a href="mailto:${emailAddress}"><img src="images/email.png"></a>{{/if}}{{if skypeContact}} <a href="Skype:${skypeContact}?chat"><img src="images/skype.png"></a>{{/if}}
+			</td>
+		</tr>
+	</script>
+
+	<script id="contactCardTemplate" type="text/x-jQuery-tmpl">
+		<li id="${firstName} ${lastName}" class="contactCard">
+			<a href="#" id="closeCardButton"></a>
+
+			<div class="photo"><img {{if itemClass=="person"}}src="photos/${firstName} ${lastName} 3X3.jpg" class="personPhoto"{{else}}src="images/generalPhoto.jpg"{{/if}}></a></div>
+			<p class="name">${firstName} ${middleName} ${lastName}</p>
+			<p class="jobTitle">${jobTitle}</p>
+			<p class="emailAddress"><a href="mailto:${emailAddress}">${emailAddress}</a></p>
+
+			<p>${department}, ${branchLocation} | <a href="Skype:${skypeContact}?chat">Chat Now</a></p>
+
+			<p class="contactInfo">
+				<span class="key">Extension: </span>${phoneExtension}<br>
+				<span class="key">Direct Line: </span>${phoneDirect}<br>
+				<span class="key" key>Cell Phone: </span>${cellPhone}<br>
+				<span class="key">Home Phone: </span>${homePhone}
+			</p>
+
+			<p>
+				<span class="key">Birthday: </span>${birthday}<br>
+				<span class="key">G&amp;P Anniversary: </span>${anniversary}<br>
+				<span class="key">Years in industry: </span>${yearsIndustry}<br>
+				<span class="key">Home Town: </span>${homeTownCity}, ${homeTownState}
+			</p>
+			
+			<p>
+				<span class="key">Most likely to...</span><br>
+				${mostLikelyTo}
+			</p>
+			
+
+			<p class="bio">
+				${employeeBio}
+			</p>
+			
+		</li>
+	</script>
+
+	<script id="bigPhotoTemplate" type="text/x-jQuery-tmpl">
+
+		<div class="bigPhoto">
+			<img src="photos/${firstName} ${lastName} 3x3.jpg">
+		</div>
+
+	</script>
+
+
+<!-- PHOTO VIEW jQuery Templates -->
+	<script id="employeePortraitTemplate" type="text/x-jQuery-tmpl">
+		
+		{{if itemClass=="person"}}
+			<div class="personBox">
+				<div class="personName">${firstName}</td> ${lastName}</div>
+				<img class="personPhoto" src="photos/${firstName} ${lastName} 3X3.jpg">			
+			</div>
+		{{/if}}
+
+	</script>
+
+
+<!-- MAP VIEW jquery Templates -->
+
+	<script id="list_item_template" type="text/x-jQuery-tmpl">
+		{{if itemClass=="person"}}
+			<li id="list_entry_${firstName}${lastName}" class="list_entry">
+				<div class="portrait"><i class="fa fa-user"></i></div>
+				<h1>${firstName} ${lastName}</h1>
+				<h2>${jobTitle}</h2>
+				<a href="#" class="contact_icon"><i class="fa fa-envelope"></i></a>
+				<a href="#" class="contact_icon"><i class="fa fa-skype"></i></a>
+			</li>
+		{{/if}}
+	</script>
+
+	<script id="card_template" type="text/x-jQuery-tmpl">
+		<div class="contact_card" id="contact_card">
+			<div class="portrait"><i class="fa fa-user"></i></div>
+			<h1>${first} ${last}</h1>
+			<h2>${position}</h2>
+			<a href="#email" class="contact_icon"><i class="fa fa-envelope"></i></a>
+			<a href="#skype" class="contact_icon"><i class="fa fa-skype"></i></a>
+		</div>
+	</script>
+
+
+</html>
+
+
+<script>
+
+	/*
+
+	TO DO LIST
+
+	Filter list based on hidden data fields.
+	Filter by Department
+		Accounts
+		Admin
+		Casino
+		Creative
+		Data
+		HR
+		Video
+		
+	Only show people?
+
+	Place pins on map
+	
+	Show other buildings
+
+	Dropdown card
+
+	Stop propogation?
+
+	Fire map
+
+	*/
+
+</script>
