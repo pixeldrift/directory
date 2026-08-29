@@ -1,2 +1,2 @@
 # directory
-Gremillion &amp; Pou interactive employee directory
+An interactive employee directory using jQuery
